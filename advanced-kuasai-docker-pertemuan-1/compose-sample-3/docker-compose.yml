@@ -1,0 +1,16 @@
+version: '2'
+
+# berbasis file dari compose-sample-2 
+# kali ini kita coba tambahkan tema free dari https://startbootstrap.com/template-overviews/agency/
+
+services:
+  proxy:
+    build:
+      context: .
+      dockerfile: nginx.Dockerfile
+    ports:
+      - '80:80'
+  web:
+    image: httpd
+    volumes:
+      - ./html:/usr/local/apache2/htdocs/

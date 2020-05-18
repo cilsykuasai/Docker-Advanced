@@ -1,0 +1,16 @@
+version: '3.1'  
+
+services:  
+  servicename: 
+    image: 
+    command: 
+    environment: 
+    volumes: 
+  servicename2:
+    image:
+    environment:
+    volumes:
+
+volumes: 
+
+networks: 

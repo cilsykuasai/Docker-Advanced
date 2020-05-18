@@ -1,0 +1,15 @@
+version: '2'
+
+# sama dengan 
+# docker container run -d --name webserver -p 80:80 -v web-data:/usr/share/nginx/html nginx:latest
+
+services:
+  webserver:
+    image: nginx:latest
+    volumes:
+      - web-data:/usr/share/nginx/html
+    ports:
+      - '80:80'
+
+volumes:
+  web-data:

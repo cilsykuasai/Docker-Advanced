@@ -1,0 +1,23 @@
+KUNCI JAWABAN :
+
+1. buat dulu networknya :
+
+docker network create --driver overlay frontend
+docker network create --driver overlay backend
+
+2. Buat masing-masing servicenya :
+
+vote :
+docker service create -d --name vote -p 80:80 --network frontend --replicas 2 dockersamples/examplevotingapp_vote:before
+
+redis :
+docker service create -d --name redis --network frontend redis:3.2
+
+worker :
+docker service create -d --name worker --network frontend --network backend dockersamples/examplevotingapp_worker
+
+db :
+docker service create -d --name db --network backend --mount type=volume,source=db-data,target=/var/lib/postgresql/data postgres:9.4
+
+result :
+docker service create -d --name result --network backend -p 5001:80 dockersamples/examplevotingapp_result:before

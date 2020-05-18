@@ -1,0 +1,4 @@
+1. Tag image dan Push ke docker hub
+$ docker image tag drupal-custom cilsy/drupal-custom
+$ docker image push cilsy/drupal-custom
+
